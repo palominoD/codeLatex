@@ -1,0 +1,78 @@
+%formato de plantilla que se va a utilizar
+\documentclass[a4paper]{article} 
+%para idioma espanol
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%gestor de espacio
+\usepackage[margin=2cm,top=2cm,includefoot]{geometry}
+%gestor de imagenes
+\usepackage{graphicx}
+%deteccion de color
+\usepackage[table,xcdraw]{xcolor}
+%insericion de cuadros
+\usepackage[most]{tcolorbox}
+%definir el estilo de lapagina
+\usepackage{fancyhdr}
+%gestion de hypervinculos
+\usepackage[hidelinks]{hyperref}
+
+%cabecera
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[width=1cm]{\logoPortada}}
+\rhead{\includegraphics[height=1cm]{\logoMachine}}
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
+
+%variables de color
+\definecolor{greenPortada}{HTML}{69A84F}
+\definecolor{lineCabecera}{HTML}{5DADE2}
+
+
+%variables globales
+\newcommand{\logoPortada}{../images/upc.png}
+\newcommand{\logoMachine}{../images/mantis.png}
+\newcommand{\machineName}{Mantis}
+\newcommand{\startDate}{27/08/2023}
+
+%comienzo del documento
+\begin{document}
+    %creacion de portada
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.2\textwidth]{\logoPortada}
+        \par\vspace{1cm}
+        {\LARGE\textbf{Informe tecnico}}
+        \par\vspace{0.4cm}
+        {\Huge\bfseries\textcolor{greenPortada}{Maquina \machineName}}
+        \vfill
+
+        \par\vspace{0.4cm}
+        \includegraphics[width=\textwidth,height=10cm,keepaspectratio]{\logoMachine}
+        \vfill
+
+        \par\vspace{1cm}
+        \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
+            \centering
+            Este docuemnto es cofuidencial y contiene infromacion sencible
+            \\
+            No deberia ser compartido con terceras entidades
+        \end{tcolorbox}
+        \vfill
+
+        {\large\startDate\par}
+
+    \end{titlepage}
+    \clearpage
+
+    %creacion de indice
+    \tableofcontents
+    \cfoot{\thepage}
+    \clearpage
+    %desarrollo
+    \section{Antecedentes}
+    \section{Objeticos}
+
+
+\end{document}

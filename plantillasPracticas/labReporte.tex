@@ -1,0 +1,137 @@
+%formato de plantilla que se va a utilizar
+\documentclass[a4paper]{article} 
+%para idioma español
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, mexico]{babel}
+\usepackage[style=mexican]{csquotes}
+%gestor de espacio
+\usepackage[margin=2cm,top=2cm,includefoot]{geometry}
+%gestor de imagenes
+\usepackage{graphicx}
+%deteccion de color
+\usepackage[table,xcdraw]{xcolor}
+%insericion de cuadros
+\usepackage[most]{tcolorbox}
+%definir el estilo de lapagina
+\usepackage{fancyhdr}
+%gestion de hypervinculos
+\usepackage[hidelinks]{hyperref}
+%marca de agua
+\usepackage{background}
+%dibujar figuras
+\usepackage{circuitikz, tikz, pgfplots}
+
+
+%cabecera
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\includegraphics[width=1.2cm]{\logo}}
+\lhead{\bfseries\textcolor{letraCabecera}{Ingeniería en Telecomunicaciones, Sistemas y Electrónica}}
+%\rhead{\tiny\bfseries\textcolor{letraCabecera}{Ingeniería en Telecomunicaciones, Sistemas y Electrónica}}
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
+
+%variables de color
+\definecolor{greenPortada}{HTML}{69A84F}
+\definecolor{lineCabecera}{HTML}{5DADE2}
+\definecolor{letraCabecera}{HTML}{399CDE} 
+
+
+%variables globales
+\newcommand{\logo}{img/otro.png}
+
+%config de la marca de agua
+\backgroundsetup{
+    scale=1,
+    color=black,
+    opacity=0.05,
+    angle=0,
+    position=current page.center,
+    vshift=-0.5cm,
+    contents={\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{\logo}}
+}
+
+%comienzo del documento
+\begin{document}
+    %creacion de portada
+    \begin{titlepage}
+        \centering
+        \scalebox{0.9}{\Huge\textbf{Universidad Nacional Autónoma de México}}
+        \par\vspace{0.5cm}
+        \scalebox{0.9}{\Huge{Facultad de Estudios Superiores Cuautitlán}}
+
+        \begin{tikzpicture}
+            \draw(0,0)--(16,0);
+        \end{tikzpicture}
+        \par\vspace{1cm}
+
+        \raggedright{\huge\textbf{Laboratorio:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{Sistemas basados en redes neuronales}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Grupo:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{1909-C}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Profesor:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{Ing. Garcia Garcia Maribel}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Alumno:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{Palomino Alfonso Edgar}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Nombre de la práctica:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{Perceptron}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Número de la práctica:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{02}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Realizado:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{08/09/2023}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Entregado:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{22/09/2023}}
+        \par\vspace{0.5cm}
+
+        \raggedright{\huge\textbf{Semestre:}}
+        \par\vspace{0.5cm}
+        \centering
+        {\huge{2024-1}}
+        \par\vspace{0.5cm}
+
+        \vfill
+
+    \end{titlepage}
+    \clearpage
+
+    %creacion de indice
+    \tableofcontents
+    \cfoot{\thepage}
+    \clearpage
+    %desarrollo
+    \section{Antecedentes}
+    \section{Objeticos}
+    
+\end{document}

@@ -1,0 +1,26 @@
+sudo dnf update
+sudo dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+sudo dnf install texlive-full -y
+
+sudo dnf install zathura latexmk rubber -y
+
+xdg-mime query default application/pdf
+xdg-mime default zathura.desktop application/pdf
+cd home/qdart/.config
+mkdir latexmk
+cd latexmk
+touch latexmkrc
+    $pdf_previewer = 'zathura';
+cd ..
+chown qdart:qdart -R latexmk
+
+whoami
+
+cd /root/.config/latexmkrc
+
+enlace simbolico
+
+cat latexmkrc
