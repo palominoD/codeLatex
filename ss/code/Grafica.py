@@ -65,14 +65,10 @@ class Grafica(QWidget):
         self.dial_ledB = QDial()
         self.dial_ledB.setRange(0, 255)
         self.dial_ledB.valueChanged.connect(self.control_ledB)
-        #self.dial_ledB.setFixedSize(100, 30)
 
         self.valor_dialB = QLCDNumber(self)
         self.valor_dialB.setFixedSize(100, 30)
-        #self.valor_dialB.setStyleSheet(f"background-color: {slateGray}; border-radius: 10px; text-align: center; color = {violetRed};")
 
-
-        
 #AGREGANDO
         self.layout_principal.addLayout(self.layout_graficas)
         self.layout_boton.addWidget(self.btn_conectar, alignment=Qt.AlignBottom | Qt.AlignRight )
