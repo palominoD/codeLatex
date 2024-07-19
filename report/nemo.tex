@@ -16,13 +16,12 @@
 \usepackage{fancyhdr}
 %gestion de hypervinculos
 \usepackage[hidelinks]{hyperref}
-\usepackage{svg}
 
 %cabecera
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\includesvg[width=1cm]{\logoDNS}}
+\lhead{\includegraphics[width=1cm]{\logoDNS}}
 \rhead{\includegraphics[height=1cm]{\logoWhip}}
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
@@ -33,7 +32,7 @@
 
 
 %variables globales
-\newcommand{\logoDNS}{img/largeDns.svg}
+\newcommand{\logoDNS}{img/largeDns.pdf}
 \newcommand{\logoWhip}{img/largeW.png}
 \newcommand{\machineName}{img}
 \newcommand{\startDate}{\today}
@@ -51,7 +50,7 @@
         \vfill
 
         \par\vspace{0.4cm}
-        \includesvg[width=\textwidth,height=10cm,keepaspectratio]{\logoDNS}
+        \includegraphics[width=\textwidth,height=10cm,keepaspectratio]{\logoDNS}
         \vfill
 
         \par\vspace{1cm}
