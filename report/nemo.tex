@@ -18,7 +18,8 @@
 \usepackage{fancyhdr}
 %gestion de hypervinculos
 \usepackage[hidelinks]{hyperref}
-
+%eliminar sangria inicial
+\usepackage{parskip}
 %cabecera
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
@@ -41,8 +42,14 @@
 \newcommand{\logoWhip}{img/largeW.png}
 \newcommand{\first}{img/overView.png}
 \newcommand{\second}{img/metricaTotal.png}
-
-
+\newcommand{\cra}{img/client-request-allow.png}
+\newcommand{\crb}{img/client-request-block.png}
+\newcommand{\cta}{img/client-threat-allow.png}
+\newcommand{\ctb}{img/client-threat-block.png}
+\newcommand{\daa}{img/domain-all-all.png}
+\newcommand{\dta}{img/domain-threat-allow.png}
+\newcommand{\dtb}{img/domain-threat-block.png}
+\newcommand{\dtall}{img/domain-threat-all.png}
 
 %comienzo del documento
 \begin{document}
@@ -80,7 +87,7 @@
 
     \begin{figure}[H] 
         \centering 
-        \includegraphics[width=0.5 \linewidth]{\first} 
+        \includegraphics[width=0.8 \linewidth]{\first} 
         \caption{Vista General} 
     \end{figure} 
 
@@ -89,12 +96,53 @@
 
     \begin{figure}[H] 
         \centering 
-        \includegraphics[width=0.5 \linewidth]{\second} 
+        \includegraphics[width=0.8 \linewidth]{\second} 
         \caption{Métricas Totales} 
     \end{figure} 
 
     Podemos visualizar el top de 5 DNS más consultados en todo nuestro tráfico además de las categorías a las que pertenecen, las amenazas que fueron bloqueadas, las que fueron permitidas, se puede observar los clientes que realizaron más peticiones permitidas, de amenazas y que fueron bloqueadas, también los usuarios que realizaron todas estas consultas con esto podemos monitorizar el uso de los dispositivos y de la red que estamos monitoreando, permitiéndose una vista completa de todas las consultas hechas.
 
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.8 \linewidth]{\daa} 
+        \caption{Top de DNS de las peticiones totales y categorías} 
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8 \linewidth]{\dta}
+        \caption{Top de DNS de las peticiones maliciosas permitidas}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8 \linewidth]{\dtb}
+        \caption{Top de DNS de las peticiones maliciosas denegadas}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8 \linewidth]{\cra}
+        \caption{Top de Roaming client con peticiones permitidas}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8 \linewidth]{\crb}
+        \caption{Top de Roaming client con peticiones denegadas}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8 \linewidth]{\cta}
+        \caption{Top de Roaming client con peticiones maliciosas permitidas}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8 \linewidth]{\cta}
+        \caption{Top de Roaming client con peticiones maliciosas denegadas}
+    \end{figure}
 
 \end{document}
 
