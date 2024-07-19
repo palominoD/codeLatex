@@ -21,8 +21,8 @@
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\includegraphics[width=1cm]{\logoDNS}}
-\rhead{\includegraphics[height=1cm]{\logoWhip}}
+\lhead{\includegraphics[width=1cm]{\logoWhip}}
+\rhead{\includegraphics[height=1cm]{\logoDNS}}
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
 
@@ -34,7 +34,7 @@
 %variables globales
 \newcommand{\logoDNS}{img/largeDns.pdf}
 \newcommand{\logoWhip}{img/largeW.png}
-\newcommand{\machineName}{img}
+\newcommand{\canal}{Nemotek}
 \newcommand{\startDate}{\today}
 
 %comienzo del documento
@@ -46,7 +46,7 @@
         \par\vspace{1cm}
         {\LARGE\textbf{Informe tecnico}}
         \par\vspace{0.4cm}
-        {\Huge\bfseries\textcolor{greenPortada}{Maquina \machineName}}
+        {\Huge\bfseries\textcolor{greenPortada}{\canal}}
         \vfill
 
         \par\vspace{0.4cm}
@@ -56,9 +56,9 @@
         \par\vspace{1cm}
         \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
             \centering
-            Este docuemnto es confidencial y contiene infromacion sencible
+            Este documento es confidencial y contiene información sensible
             \\
-            No deberia ser compartido con terceras entidades
+            No debería ser compartido con terceras entidades
         \end{tcolorbox}
         \vfill
 
@@ -67,10 +67,6 @@
     \end{titlepage}
     \clearpage
 
-    %creacion de indice
-    \tableofcontents
-    \cfoot{\thepage}
-    \clearpage
     %desarrollo
     \section{Antecedentes}
     \section{Objeticos}
