@@ -16,13 +16,14 @@
 \usepackage{fancyhdr}
 %gestion de hypervinculos
 \usepackage[hidelinks]{hyperref}
+\usepackage{svg}
 
 %cabecera
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\includegraphics[width=1cm]{\logoPortada}}
-\rhead{\includegraphics[height=1cm]{\logoMachine}}
+\lhead{\includesvg[width=1cm]{\logoDNS}}
+\rhead{\includegraphics[height=1cm]{\logoWhip}}
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
 
@@ -35,7 +36,7 @@
 \newcommand{\logoDNS}{img/largeDns.svg}
 \newcommand{\logoWhip}{img/largeW.png}
 \newcommand{\machineName}{img}
-\newcommand{\startDate}{18/07/2024}
+\newcommand{\startDate}{\today}
 
 %comienzo del documento
 \begin{document}
@@ -50,13 +51,13 @@
         \vfill
 
         \par\vspace{0.4cm}
-        \includegraphics[width=\textwidth,height=10cm,keepaspectratio]{\logoDNS}
+        \includesvg[width=\textwidth,height=10cm,keepaspectratio]{\logoDNS}
         \vfill
 
         \par\vspace{1cm}
         \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
             \centering
-            Este docuemnto es cofuidencial y contiene infromacion sencible
+            Este docuemnto es confidencial y contiene infromacion sencible
             \\
             No deberia ser compartido con terceras entidades
         \end{tcolorbox}
