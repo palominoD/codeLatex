@@ -32,10 +32,15 @@
 
 
 %variables globales
-\newcommand{\logoDNS}{img/largeDns.pdf}
-\newcommand{\logoWhip}{img/largeW.png}
 \newcommand{\canal}{Nemotek}
 \newcommand{\startDate}{\today}
+
+\newcommand{\logoDNS}{img/largeDns.pdf}
+\newcommand{\logoWhip}{img/largeW.png}
+\newcommand{\first}{img/overView.png}
+\newcommand{\second}{img/metricaTotal.png}
+
+
 
 %comienzo del documento
 \begin{document}
@@ -68,8 +73,25 @@
     \clearpage
 
     %desarrollo
-    \section{Antecedentes}
-    \section{Objeticos}
+    \section{Resultados de la prueba de concepto}
+    Whip Solutions ha llevado la prueba de concepto de DNS Filter en conjunto con Nemotek del día 28 de junio del 2024 al día 21 de julio del 2024, tras este proceso de PoC podemos visualizar la siguiente información en la plataforma de DNS Filter.
+
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.5 \linewidth]{\first} 
+        \caption{Vista General} 
+    \end{figure} 
+
+    Se puede observar el total de peticiones, peticiones permitidas, peticiones bloqueadas y las amenazas que se tuvieron durante dicho proceso, la prueba se llevó a cabo con 3 clientes que se instalaron sobre sus dispositivos, se desplegaron diversas políticas con las cuales se probaron las funciones de DNS Filter.
+    Se configuró solo un sitio y de este se pueden obtener las siguientes métricas. 
+
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.5 \linewidth]{\second} 
+        \caption{Métricas Totales} 
+    \end{figure} 
+
+    Podemos visualizar el top de 5 DNS más consultados en todo nuestro tráfico además de las categorías a las que pertenecen, las amenazas que fueron bloqueadas, las que fueron permitidas, se puede observar los clientes que realizaron más peticiones permitidas, de amenazas y que fueron bloqueadas, también los usuarios que realizaron todas estas consultas con esto podemos monitorizar el uso de los dispositivos y de la red que estamos monitoreando, permitiéndose una vista completa de todas las consultas hechas.
 
 
 \end{document}
