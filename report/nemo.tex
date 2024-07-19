@@ -50,6 +50,14 @@
 \newcommand{\dta}{img/domain-threat-allow.png}
 \newcommand{\dtb}{img/domain-threat-block.png}
 \newcommand{\dtall}{img/domain-threat-all.png}
+\newcommand{\tbc}{/img/threats-by-category.pdf}
+\newcommand{\tbd}{/img/threats-by-domain.pdf}
+\newcommand{\tbr}{/img/threats-by-client.pdf}
+\newcommand{\tbs}{/img/threats-by-site.pdf}
+\newcommand{\tbu}{/img/threats-by-user.pdf}
+% \newcommand{\}{/img/}
+% \newcommand{\}{/img/}
+
 
 %comienzo del documento
 \begin{document}
@@ -70,7 +78,7 @@
         \par\vspace{1cm}
         \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
             \centering
-            Este documento es confidencial y contiene información sensible
+            Este documento es confidencial y puede contener información sensible
             \\
             No debería ser compartido con terceras entidades
         \end{tcolorbox}
@@ -144,5 +152,40 @@
         \caption{Top de Roaming client con peticiones maliciosas denegadas}
     \end{figure}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9 \linewidth]{\tbc}
+        \caption{Amenazas por categoría}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9 \linewidth]{\tbr}
+        \caption{Amenazas por cliente}
+    \end{figure}   
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9 \linewidth]{\tbd}
+        \caption{Amenazas por dominio}
+    \end{figure}    
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9 \linewidth]{\tbs}
+        \caption{Amenazas por sitio}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9 \linewidth]{\tbu}
+        \caption{Amenazas por usuario}
+    \end{figure}
+    
+    
+    
+    
+    
+    
 \end{document}
 
