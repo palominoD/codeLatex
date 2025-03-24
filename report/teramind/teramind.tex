@@ -24,8 +24,8 @@
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\includegraphics[width=1cm]{\logoWhip}}
-\rhead{\includegraphics[height=1cm]{\logoMarca}}
+\lhead{\includegraphics[width=1.4cm]{\logoWhip}}
+\rhead{\includegraphics[height=0.4cm]{\logoMarca}}
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to \headwidth{\color{lineTeramind}\leaders\hrule height \headrulewidth\hfill}}
 
@@ -41,17 +41,16 @@
 \newcommand{\startDate}{\today}
 
 \newcommand{\logoMarca}{img/teramindComplete.png}
+\newcommand{\marcaCabecera}{img/teramindT.png}
 \newcommand{\logoWhip}{img/largeW.png}
 \newcommand{\first}{img/captura1.png}
 \newcommand{\second}{img/captura2.png}
 \newcommand{\thirdth}{img/captura3.png}
 \newcommand{\fourth}{img/captura4.png}
 \newcommand{\fiveth}{img/captura5.png}
-
-
+\newcommand{\sixth}{img/captura6.png}
 
 % \newcommand{\}{/img/}
-
 
 %comienzo del documento
 \begin{document}
@@ -66,7 +65,7 @@
         \vfill
 
         \par\vspace{0.4cm}
-        \includegraphics[width=0.8\textwidth,height=5cm,keepaspectratio]{\logoMarca}
+        \includegraphics[width=0.6\textwidth,height=5cm,keepaspectratio]{\logoMarca}
         \vfill
 
         \par\vspace{1cm}
@@ -90,19 +89,78 @@
 
     \begin{figure}[H] 
         \centering 
-        \includegraphics[width=0.9 \linewidth]{\first} 
+        \includegraphics[width=0.8 \linewidth]{\first} 
         \caption{General} 
     \end{figure} 
     
     \section{Regla 1}
     Se crea una regla para que se reporte cualquier carácter repetido, esto se hace a través del uso de expresiones regulares, tomando la siguiente sentencia.
+    %/(.)\1{9,}/
+    \begin{displaymath}
+        \texttt{/(.)\textbackslash1\{9,\}/}
+    \end{displaymath}
     
-    /(.)\1{9,}/
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.8 \linewidth]{\second} 
+        \caption{Uso de expresión regular} 
+    \end{figure}
 
+    Configuramos cualquier acción del modo simple en la parte reactiva de Teramind.
+    Una vez que hacemos esto, puedes guardar la regla y con esto podemos generar las alertas que se buscan.
+    Esta regla disparara la alerta de cualquier carácter con patrón repetitivo, como lo son:
 
-
+    \begin{center}
+        \textbf{uuuuuuuuu} \\
+        \textbf{aaaaaaaaa}
+    \end{center}
+        
+    Para que se dispare la regla se requiere que se repitan 10 veces el patron, si modificamos el número nueve podemos ajustar la cantidad de veces que debe coincidir, la coincidencia sería la siguente:
+    \begin{displaymath}
+        n+1
+    \end{displaymath}
+    
     \section{Regla 2}
+    Esta regla se crea para los caracteres de flecha arriba o abajo, la configuración es la siguiente.\\
+    Se toma el apartado de tecla especial y se selecciona la flecha arriba y flecha abajo
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.8 \linewidth]{\thirdth} 
+        \caption{Caracteres especiales}
+    \end{figure}
 
-    
+    En la parte de acciones se tiene que hacer la configuración del sistema en modo avanzado.
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.8 \linewidth]{\fourth} 
+        \caption{Configuración avanzada}
+    \end{figure}
+
+    Aquí podemos jugar con los requerimientos en cada caso, para este particular tomamos el umbral del tiempo en cada hora, el umbral de alertas en 9 alertas por cada hora, después de 30 veces que sea pulsada de manera repetitiva la tecla, se disparara la alarma y la acción a tomar es alertar al usuario, estos parámetros se pueden cambiar y ajustar.
+
+    \section{Consideraciones adicionales}
+    Se puede revisar la configuración del monitoreo de cada usuario para garantizar que el check de pulsación de teclado esté activo, si se han creado más perfiles, debemos verificar en qué perfil está el usuario que queremos monitorear.
+
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.8 \linewidth]{\fiveth} 
+        \caption{Configuración de monitoreo para el usuario}
+    \end{figure}
+
+    Dentro de las configuraciones globales se tienen como Default el conteo máximo de alertas por días, limitado a 5 y el umbral de alertas de usuario en 120 segundos, esto quiere decir que se limita a 5 alertas por dia, para un intervalo entre alerta y alerta de 2 minutos, esto se puede modificar para los parámetros que consideremos necesarios.\\
+    Este menú se encuentra en la ruta:
+
+    \begin{itemize}
+        \item Engranaje superior del lado derecho 
+        \item Configuración
+        \item Alertas
+    \end{itemize}
+
+    \begin{figure}[H] 
+        \centering 
+        \includegraphics[width=0.8 \linewidth]{\sixth} 
+        \caption{Configuración global}
+    \end{figure}
+
 \end{document}
 
