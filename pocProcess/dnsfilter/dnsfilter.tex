@@ -1,0 +1,73 @@
+
+%formato de plantilla que se va a utilizar
+\documentclass[a4paper]{article} 
+%para idioma espanol
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%gestor de espacio
+\usepackage[margin=2cm,top=2cm,includefoot]{geometry}
+%gestor de imagenes
+\usepackage{graphicx}
+%usar el float H
+\usepackage{float}
+%deteccion de color
+\usepackage[table,xcdraw]{xcolor}
+%insericion de cuadros
+\usepackage[most]{tcolorbox}
+%definir el estilo de lapagina
+\usepackage{fancyhdr}
+%gestion de hypervinculos
+\usepackage[hidelinks]{hyperref}
+%eliminar sangria inicial
+\usepackage{parskip}
+%cabecera
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[width=1cm]{\logoWhip}}
+\rhead{\includegraphics[height=0.5cm]{\logoDNS}}
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
+
+%variables de color
+\definecolor{greenPortada}{HTML}{69A84F}
+\definecolor{lineCabecera}{HTML}{5DADE2}
+
+
+%variables globales
+%\newcommand{\canal}{Nemotek}
+\newcommand{\startDate}{\today}
+
+\newcommand{\logoDNS}{img/largeDns.pdf}
+\newcommand{\logoWhip}{img/largeW.png}
+
+% \newcommand{\}{/img/}
+
+
+%comienzo del documento
+\begin{document}
+    %creacion de portada
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.3\textwidth]{\logoWhip}
+        \par\vspace{3cm}
+        {\Huge\textbf{Proof of Concept}}
+        \par\vspace{2cm}
+        %{\Huge\bfseries\textcolor{greenPortada}{\canal}}
+         \vfill
+
+         \par\vspace{0.4cm}
+        \includegraphics[width=\textwidth,height=10cm,keepaspectratio]{\logoDNS}
+        \vfill
+        {\large\startDate\par}
+    \end{titlepage}
+    \clearpage
+
+    %desarrollo
+    \section{Resultados de la prueba de concepto}
+    Whip Solutions ha llevado la prueba de concepto de DNS Filter en conjunto con Nemotek del día 28 de junio del 2024 al día 19 de julio del 2024, tras este proceso de PoC podemos visualizar la siguiente información en la plataforma de DNS Filter.
+
+
+    
+\end{document}
+
