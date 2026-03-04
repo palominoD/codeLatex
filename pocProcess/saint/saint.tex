@@ -20,6 +20,10 @@
 \usepackage[hidelinks]{hyperref}
 %eliminar sangria inicial
 \usepackage{parskip}
+%Uso parea tabla limpia
+\usepackage{booktabs}
+\usepackage{tabularx}
+
 %cabecera
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
@@ -35,7 +39,7 @@
 
 
 %variables globales
-\newcommand{\canal}{Nemotek}
+%\newcommand{\canal}{Nemotek}
 \newcommand{\startDate}{\today}
 
 \newcommand{\logoTecno}{img/cands.png}
@@ -46,7 +50,7 @@
 % \newcommand{\}{/img/}
 
 
-%comienzo del documento
+%######################################## Comienzo del documento ################
 \begin{document}
     %creacion de portada
     \begin{titlepage}
@@ -92,9 +96,360 @@
     \end{titlepage}
     \clearpage
 
+    %creacion de indice
+    \tableofcontents
+    \cfoot{\thepage}
+    \clearpage
+
     %desarrollo
-    \section{Resultados de la prueba de concepto}
-    Whip Solutions ha llevado la prueba de concepto de DNS Filter en conjunto con Nemotek del día 28 de junio del 2024 al día 19 de julio del 2024, tras este proceso de PoC podemos visualizar la siguiente información en la plataforma de DNS Filter.
+    \section{Introducción}
+    El presente documento describe el desarrollo del Proof of Concept (PoC) de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, el cual será ejecutado con el propósito de validar las capacidades de la solución en la identificación de vulnerabilidades, evaluación de configuraciones de seguridad y análisis de la postura de ciberseguridad dentro del entorno tecnológico del cliente.
+
+    Este PoC tiene como finalidad proporcionar una validación técnica controlada que permita demostrar el valor operativo y estratégico de la solución, mediante la ejecución de evaluaciones de seguridad autorizadas sobre activos representativos previamente definidos en conjunto con el cliente. Las actividades serán realizadas de manera planificada y coordinada, asegurando que las pruebas se ejecuten sin generar impactos negativos en la operación productiva del entorno evaluado.
+
+    A través de este ejercicio, se busca obtener visibilidad sobre la exposición a riesgos de seguridad existentes, validar la efectividad de los mecanismos actuales de protección, y proporcionar información técnica accionable que permita apoyar la toma de decisiones relacionadas con la gestión de vulnerabilidades y mejora continua de la postura de seguridad.
+
+    El documento establece de manera estructurada los objetivos del PoC, el alcance técnico de la evaluación, los escenarios de validación, los criterios de éxito, el cronograma estimado de ejecución, así como los roles y responsabilidades de las partes involucradas durante el desarrollo de la prueba.
+
+    Este PoC servirá como base técnica para determinar la viabilidad de adopción de la solución, proporcionando evidencia objetiva sobre su capacidad para apoyar los procesos de identificación, priorización y gestión de riesgos de ciberseguridad dentro del entorno del cliente.
+
+    \section{Objetivo}
+    El objetivo del presente Proof of Concept (PoC) es validar de manera práctica y controlada las capacidades de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, para identificar vulnerabilidades, configuraciones inseguras y riesgos de seguridad dentro del entorno tecnológico del cliente.
+
+    Este ejercicio busca demostrar la efectividad de la solución en la ejecución de evaluaciones de seguridad mediante escaneos autenticados y no autenticados, permitiendo obtener visibilidad sobre la exposición real a amenazas, así como sobre el estado actual de cumplimiento de buenas prácticas de seguridad.
+
+    De manera específica, el PoC tiene como objetivos:
+    \begin{itemize}
+        \item Validar la capacidad de la solución para identificar vulnerabilidades críticas, altas y medias dentro de los activos incluidos en el alcance definido.
+        \item Confirmar la efectividad de los escaneos autenticados para obtener visibilidad profunda del estado de seguridad de los sistemas operativos, aplicaciones y configuraciones.
+        \item Evaluar la capacidad de la plataforma para identificar software vulnerable, parches faltantes y desviaciones de configuración segura.
+        \item Validar la generación de reportes técnicos y ejecutivos que permitan priorizar riesgos y facilitar la toma de decisiones.
+        \item Demostrar la facilidad de operación, estabilidad del proceso de escaneo y calidad de la información generada durante la evaluación.
+    \end{itemize}
+    A través de este PoC, se busca proporcionar al cliente evidencia técnica objetiva que permita evaluar el valor de la solución en el fortalecimiento de sus procesos de gestión de vulnerabilidades, mejora continua de la postura de ciberseguridad y soporte a estrategias de reducción de riesgo tecnológico.
+
+    \section{Alcance de la evaluación}
+    El presente Proof of Concept (PoC) contempla la evaluación de las capacidades de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, mediante la ejecución de actividades controladas de análisis de vulnerabilidades y evaluación de configuración de seguridad sobre activos representativos del entorno del cliente.
+
+    El alcance de la evaluación será definido en conjunto con el cliente antes del inicio de las actividades técnicas, considerando la criticidad de los sistemas, disponibilidad operativa y viabilidad técnica de los procesos de escaneo.
+
+    La evaluación se enfocará en validar la visibilidad de la postura de seguridad del entorno mediante la identificación de vulnerabilidades conocidas, configuraciones inseguras, software vulnerable y desviaciones de cumplimiento respecto a buenas prácticas de seguridad.
+    \subsection{Activos Incluidos en Alcance}
+    El PoC podrá incluir, dependiendo de la definición acordada con el cliente, los siguientes tipos de activos:
+    \begin{itemize}
+        \item Servidores Windows
+        \item Servidores Linux
+        \item Equipos de red (routers, switches, firewalls, si aplica)
+        \item Infraestructura virtual (hipervisores y máquinas virtuales)
+        \item Equipos de usuario final
+        \item Servicios expuestos en red interna o externa
+    \end{itemize}
+    La cantidad exacta de activos será definida durante la fase inicial del PoC.
+    \subsection{Tipos de Evaluación Incluidos}
+    Durante el PoC se podrán ejecutar los siguientes tipos de evaluación:
+    \\
+
+    \textbf{Escaneo de Vulnerabilidades de Red (No Autenticado)}\\
+    Evaluación de superficie de ataque visible desde red, identificando servicios expuestos y vulnerabilidades detectables sin credenciales.
+    \\
+
+    \textbf{Escaneo de Vulnerabilidades Autenticado}
+    \\
+    Evaluación profunda mediante credenciales autorizadas para identificar vulnerabilidades internas, configuraciones inseguras, parches faltantes y software vulnerable.
+    \\
+
+    \textbf{Evaluación de Configuración de Seguridad}
+    \\
+    Validación de configuraciones del sistema operativo y aplicaciones contra buenas prácticas de seguridad.
+    \\
+
+    \textbf{Evaluación de Cumplimiento (Compliance Assessment)}
+    \\
+    Comparación del estado de configuración contra estándares de seguridad y marcos de referencia aplicables.
+
+    \section{Escenarios de validación sugeridos}
+    Durante el desarrollo del Proof of Concept (PoC), se ejecutarán distintos escenarios de validación utilizando la plataforma SAINT Security Suite, con el fin de demostrar sus capacidades técnicas en la identificación de vulnerabilidades, análisis de configuraciones de seguridad y visibilidad de la postura de ciberseguridad del entorno evaluado.
+
+    Los escenarios definidos permitirán validar la operación de la solución en condiciones controladas y representativas del entorno real del cliente, asegurando la obtención de resultados medibles y técnicamente verificables.
+
+    \textbf{Escaneo de Red No Autenticado}\\\\
+    \textbf{Descripción:} \\
+    Se ejecutará un escaneo de vulnerabilidades sin uso de credenciales, con el objetivo de identificar la superficie de ataque visible desde la red, incluyendo servicios expuestos, versiones detectables y vulnerabilidades conocidas.
+
+    \textbf{Objetivo:}\\
+    Validar la capacidad de la solución para detectar exposición externa y vulnerabilidades accesibles sin autenticación.
+
+    \textbf{Métricas de Validación:}
+    \begin{itemize}
+        \item Identificación de servicios activos
+        \item Detección de vulnerabilidades externas
+        \item Precisión en identificación de sistemas operativos y servicios
+    \end{itemize}
+
+    \textbf{Escaneo de Vulnerabilidades Autenticado}\\\\
+    \textbf{Descripción:}\\
+    Se ejecutará un escaneo utilizando credenciales autorizadas para obtener visibilidad profunda del estado de seguridad de los sistemas incluidos en el alcance.
+
+    \textbf{Objetivo:}\\
+    Validar la capacidad de la solución para identificar vulnerabilidades internas, configuraciones inseguras, software vulnerable y parches faltantes.
+
+    \textbf{Métricas de Validación:}
+    \begin{itemize}
+        \item Estado de autenticación (fail/success)
+        \item Vulnerabilidades internas detectadas
+        \item Inventario de software identificado
+        \item Identificación de parches faltantes
+    \end{itemize}
+
+    \textbf{Evaluación de Configuración de Seguridad}\\\\
+    \textbf{Descripción:}\\
+    Se evaluarán configuraciones del sistema operativo y servicios críticos contra buenas prácticas de seguridad.
+    \textbf{Objetivo:}\\
+    Identificar desviaciones de configuraciones seguras que puedan representar riesgos de seguridad.
+    \textbf{Métricas de Validación:}
+    \begin{itemize}
+        \item Cantidad de controles evaluados
+        \item Cantidad de desviaciones detectadas
+        \item Recomendaciones de remediación generadas
+    \end{itemize}
+
+    \textbf{Evaluación de Cumplimiento (Compliance Assessment)}\\\\
+    \textbf{Descripción:}\\
+    Se comparará el estado actual de configuración contra estándares de seguridad aplicables definidos previamente con el cliente.
+    \textbf{Objetivo:}\\
+    Validar la capacidad de la solución para medir postura de cumplimiento y generar recomendaciones de mejora.
+    \textbf{Métricas de Validación:}
+    \begin{itemize}
+        \item Score de cumplimiento obtenido
+        \item Controles cumplidos o no cumplidos
+        \item Recomendaciones técnicas generadas
+    \end{itemize}
+
+    \section{Criterios de aceptación}
+    Los criterios de validación establecen las condiciones mínimas necesarias para determinar que el Proof of Concept (PoC) ha sido ejecutado de manera satisfactoria, permitiendo evaluar objetivamente las capacidades de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, dentro del entorno tecnológico del cliente.
+
+    Estos criterios permiten asegurar que los resultados obtenidos sean medibles, verificables y alineados con los objetivos definidos para la evaluación.
+    \subsection{Criterios Técnicos}
+    El PoC será considerado técnicamente satisfactorio si se cumplen las siguientes condiciones:
+
+    \begin{itemize}
+        \item Los escaneos de vulnerabilidades son ejecutados correctamente dentro del alcance definido.
+        \item Se logra la ejecución exitosa de escaneos autenticados sobre los activos objetivo.
+        \item Se identifican vulnerabilidades reales y verificables en los sistemas evaluados.
+        \item Se detectan configuraciones inseguras o desviaciones de buenas prácticas de seguridad.
+        \item Se obtiene visibilidad del inventario de software y estado de parches de los activos evaluados.
+        \item Se generan reportes técnicos completos con información detallada de hallazgos y recomendaciones de remediación.
+    \end{itemize}
+
+    \subsection{Criterios Operativos}
+    Desde el punto de vista operativo, el PoC será considerado satisfactorio si:
+
+    \begin{itemize}
+        \item Las actividades son ejecutadas dentro de las ventanas de tiempo acordadas con el cliente.
+        \item No se generan impactos críticos en la operación productiva del entorno evaluado.
+        \item El cliente participa en las sesiones de revisión técnica de resultados.
+    \end{itemize}
+
+    \subsection{Validación de Resultados}
+    La validación final de los resultados considerará:
+
+    \begin{itemize}
+        \item Confirmación por parte del cliente de la visibilidad obtenida sobre su postura de seguridad.
+        \item Validación de la utilidad de los reportes generados para procesos de gestión de vulnerabilidades.
+        \item Confirmación de que la información generada permite priorizar riesgos de forma efectiva.
+    \end{itemize}
+
+    \subsection{Entregables esperados}
+    Al finalizar el PoC se deberán entregar:
+
+    \begin{itemize}
+        \item Reporte técnico detallado de vulnerabilidades detectadas.
+        \item Resumen ejecutivo con hallazgos relevantes y recomendaciones
+        \item Evidencia técnica de ejecución de escaneos (según aplique).
+    \end{itemize}
+
+    \section{Cronograma de actividades.}
+    El siguiente cronograma presenta la planificación estimada para la ejecución del Proof of Concept (PoC) utilizando la plataforma SAINT Security Suite.
+
+    Las actividades serán coordinadas entre el equipo técnico responsable de la ejecución del PoC y el cliente, siguiendo una secuencia lógica que permita asegurar la correcta preparación del entorno, ejecución de evaluaciones y presentación de resultados.
+
+    El cronograma podrá ajustarse de acuerdo con la disponibilidad del cliente, complejidad técnica del entorno y tiempos requeridos para la correcta configuración de accesos y credenciales.
+    
+    \subsection{Planificación General}
+    Detalles de tiempos propuesto para desarrollo de PoC
+
+    \begin{table}[h]
+        \centering
+        \begin{tabularx}{\textwidth}{c X X X}
+        \toprule
+        \textbf{Fase} & \textbf{Actividad} & \textbf{Duración Estimada} & \textbf{Responsable} \\
+        \midrule
+        Fase 1 & Reunión de inicio (Kickoff) & 1 hora & Cliente / Equipo Técnico \\
+        Fase 2 & Configuración inicial de escaneo & 1 -- 2 horas & Equipo Técnico \\
+        Fase 3 & Ejecución de escaneos & 1 -- 3 días (según alcance) & Equipo Técnico \\
+        Fase 4 & Análisis de resultados & 4 -- 8 horas & Equipo Técnico \\
+        Fase 5 & Presentación de resultados & 1 -- 2 horas & Cliente / Equipo Técnico \\
+        \bottomrule
+        \end{tabularx}
+        \caption{Plan de fases del proyecto}
+    \end{table}
+
+    \subsection{Detalle de actividades}
+
+    \textbf{Kickoff y Definición de Alcance}\\\\
+    Durante esta fase se realizará la reunión inicial para:
+
+    \begin{itemize}
+        \item Confirmar alcance técnico
+        \item Definir activos a evaluar
+        \item Validar ventanas de ejecución
+        \item Confirmar responsables técnicos
+        \item Revisar requerimientos técnicos
+    \end{itemize}
+
+    \textbf{Configuración Inicial}\\
+    \begin{itemize}
+        \item Configuración de targets de escaneo
+        \item Configuración de credenciales (si aplica)
+        \item Validación de conectividad
+        \item Pruebas iniciales de escaneo
+    \end{itemize}
+
+    \textbf{Ejecución de Evaluaciones}\\\\
+    Durante esta fase se ejecutarán:
+    \begin{itemize}
+        \item Escaneos de red no autenticados
+        \item Escaneos autenticados
+        \item Evaluaciones de configuración
+        \item Evaluaciones de cumplimiento (si aplica)
+    \end{itemize}
+
+    \textbf{Análisis técnico}\\
+    \begin{itemize}
+        \item Revisión de hallazgos
+        \item Validación de resultados
+        \item Priorización de riesgos
+        \item Preparación de reportes
+    \end{itemize}
+
+        \textbf{Presentación y cierre}\\
+    \begin{itemize}
+        \item Presentación de resultados técnicos
+        \item Presentación de resumen ejecutivo
+        \item Recomendaciones de remediación
+        \item Sesión de preguntas técnicas
+    \end{itemize}
+
+    \subsection{Consideraciones del cronograma}
+    \begin{itemize}
+        \item Las fechas específicas serán definidas en conjunto con el cliente.
+        \item La duración puede variar dependiendo del número de activos incluidos en el PoC.
+        \item Se recomienda ejecutar las fases de forma continua para mantener consistencia técnica.
+    \end{itemize}
+
+    \section{Criterio de éxito global}
+    Los criterios de éxito global permiten determinar si el Proof of Concept (PoC) ha cumplido con los objetivos técnicos y operativos establecidos para la evaluación de la plataforma SAINT Security Suite.
+
+    El éxito del PoC será evaluado considerando los resultados obtenidos durante la ejecución técnica, el cumplimiento del cronograma definido y la validación del valor operativo de la solución por parte del cliente.
+    \subsection{Criterios de éxito técnico}
+    El PoC será considerado técnicamente exitoso si se cumplen las siguientes condiciones:\\
+    \begin{itemize}
+        \item Se logra escanear exitosamente la mayoría de los activos definidos dentro del alcance acordado.
+        \item Se obtiene un porcentaje alto de autenticación exitosa en los sistemas donde se configuraron credenciales.
+        \item Se identifican vulnerabilidades reales dentro del entorno evaluado.
+        \item Se detectan desviaciones de configuración de seguridad o incumplimientos de buenas prácticas.
+        \item Se genera información suficiente para permitir análisis y priorización de riesgos.
+    \end{itemize}
+
+    \subsection{Criterios de éxito operativo}
+    Desde el punto de vista operativo, el PoC será considerado exitoso si:\\
+    \begin{itemize}
+        \item Las actividades se ejecutan dentro de las ventanas de tiempo acordadas con el cliente.
+        \item No se generan impactos críticos en la operación productiva del entorno.
+        \item presentación de resultados.
+        \item Se logra completar las fases definidas en el cronograma de actividades.
+    \end{itemize}
+    
+    \subsection{Validación del valor de la solución}
+    El PoC será considerado exitoso desde la perspectiva del negocio si:\\
+    \begin{itemize}
+        \item El cliente obtiene visibilidad clara sobre su postura actual de seguridad.
+        \item Los reportes generados son considerados útiles para la gestión de vulnerabilidades.
+        \item La información entregada permite priorizar acciones de remediación de manera efectiva.
+        \item El cliente valida que la solución puede integrarse dentro de sus procesos operativos de seguridad.
+    \end{itemize}
+
+    \subsection{Validación final del cliente}
+    Como parte del cierre del PoC, se considerará el éxito global si:\\
+    \begin{itemize}
+        \item Se presenta un resumen ejecutivo con los principales hallazgos.
+        \item Se entregan recomendaciones técnicas claras y accionables.
+        \item El cliente confirma la correcta ejecución del PoC.
+        \item Se obtiene retroalimentación del cliente sobre la percepción del valor de la solución.
+    \end{itemize}
+
+    \section{Cierre}
+    El Proof of Concept (PoC) se considerará formalmente concluido una vez finalizadas todas las actividades técnicas y operativas relacionadas con la evaluación de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, y tras la entrega de la documentación acordada con el cliente.
+    
+    El cierre del PoC contempla la validación final de los resultados obtenidos, la presentación de hallazgos relevantes y la entrega de recomendaciones técnicas orientadas a la mejora de la postura de seguridad del entorno evaluado.
+
+    \subsection{Actividades de cierre}
+    Como parte del proceso de cierre, se deberán completar las siguientes actividades:\\
+    \begin{itemize}
+        \item Presentación final de resultados técnicos.
+        \item Presentación de reporte técnico detallado de vulnerabilidades detectadas.
+        \item Presentación de resumen ejecutivo con hallazgos principales y recomendaciones.
+        \item Revisión conjunta de resultados con el cliente.
+        \item Resolución de dudas técnicas relacionadas con los hallazgos.
+    \end{itemize}
+
+    \subsection{Entregables finales}
+    Al finalizar el PoC, se entregarán los siguientes documentos y evidencias:\\
+    \begin{itemize}
+        \item Reporte técnico completo de vulnerabilidades.
+        \item Resumen ejecutivo orientado a toma de decisiones.
+        \item Evidencias técnicas de ejecución (según aplique).
+        \item Recomendaciones de remediación priorizadas.
+    \end{itemize}
+
+    \section{Roles y responsabilidades}
+    Durante la ejecución del PoC, las partes involucradas deberán cumplir con responsabilidades específicas para garantizar una ejecución ordenada, segura y efectiva del proceso de evaluación.
+
+    \subsection{Responsabilidades del cliente}
+    El cliente será responsable de:\\
+    \begin{itemize}
+        \item Definir el alcance de los activos a evaluar.
+        \item Proporcionar accesos, credenciales y autorizaciones necesarias para la ejecución de las evaluaciones.
+        \item Validar ventanas de ejecución para minimizar impacto operativo.
+        \item Participar en sesiones técnicas de revisión de resultados.
+        \item Validar la información obtenida durante la ejecución del PoC.
+        \item Proporcionar retroalimentación durante la sesión final de resultados.
+    \end{itemize}
+
+    \subsection{Responsabilidades del equipo técnico}
+    El equipo técnico responsable de la ejecución del PoC será responsable de:\\
+    \begin{itemize}
+        \item Configurar correctamente los objetivos de escaneo.
+        \item Ejecutar las evaluaciones de seguridad conforme al alcance aprobado.
+        \item Monitorear la ejecución de los escaneos para garantizar estabilidad operativa.
+        \item Analizar los resultados obtenidos durante la evaluación.
+        \item Revisar resultados y recomendaciones técnicas
+    \end{itemize}
+
+    \subsection{Consideraciones generales}
+    \begin{itemize}
+        \item Todas las actividades serán ejecutadas bajo autorización del cliente.
+        \item Se mantendrá comunicación continua entre las partes durante toda la ejecución del PoC.
+        \item Cualquier cambio en el alcance deberá ser previamente acordado entre las partes.
+    \end{itemize}
+
+
+
+
+
+
+
+
 
 
     
