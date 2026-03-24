@@ -20,33 +20,34 @@
 \usepackage[hidelinks]{hyperref}
 %eliminar sangria inicial
 \usepackage{parskip}
+%Uso parea tabla limpia
+\usepackage{booktabs}
+\usepackage{tabularx}
+
 %cabecera
 \setlength{\headheight}{40pt}
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\includegraphics[width=2cm]{\logoWhip}}
+\lhead{\includegraphics[width=1.5cm]{\logoWhip}}
 \rhead{\includegraphics[height=1cm]{\logoTecno}}
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
 
 %variables de color
 \definecolor{greenPortada}{HTML}{69A84F}
-%\definecolor{lineCabecera}{HTML}{3F00FF}
 \definecolor{lineCabecera}{HTML}{1F51FF}
-
+%\definecolor{lineCabecera}{HTML}{3F00FF}
 
 
 %variables globales
-\newcommand{\canal}{Nemotek}
+%\newcommand{\canal}{Nemotek}
 \newcommand{\startDate}{\today}
-
 \newcommand{\logoTecno}{img/logok.pdf}
 \newcommand{\logoWhip}{img/largeW.png}
-
 % \newcommand{\}{/img/}
 
 
-%comienzo del documento
+% ################################ Comienzo del documento ########################
 \begin{document}
     %creacion de portada
     \begin{titlepage}
@@ -55,32 +56,31 @@
         \par\vspace{2cm}
         {\Huge\textbf{Proof of Concept}}
         \par\vspace{2cm}
-        %{\Huge\bfseries\textcolor{greenPortada}{\canal}}
         \vfill
-
         \par\vspace{0.4cm}
         \includegraphics[width=\textwidth,height=8cm,keepaspectratio]{\logoTecno}
         \vfill
-
-        % \par\vspace{1cm}
-        % \begin{tcolorbox}[colback=red!5!white,colframe=red!75!black]
-        %     \centering
-        %     Este documento es confidencial y puede contener información sensible
-        %     \\
-        %     No debería ser compartido con terceras entidades
-        % \end{tcolorbox}
-        % \vfill
-
         {\large\startDate\par}
-
     \end{titlepage}
     \clearpage
 
-    %desarrollo
-    \section{Resultados de la prueba de concepto}
-    Whip Solutions ha llevado la prueba de concepto de DNS Filter en conjunto con Nemotek del día 28 de junio del 2024 al día 19 de julio del 2024, tras este proceso de PoC podemos visualizar la siguiente información en la plataforma de DNS Filter.
+    %creacion de indice
+    \tableofcontents
+    \cfoot{\thepage}
+    \clearpage
 
-
+    %################################ desarrollo #################################
+    \section{Introducción}
+    \section{Objetivo}
+    \section{Alcance de la evaluación}
+    \section{Escenarios de validación sugeridos}
+    \section{Criterios de aceptación}
+    \section{Cronograma de actividades.}
+    \section{Criterio de éxito global}
+    \section{Cierre}
+    \section{Roles y responsabilidades}
     
+
+
 \end{document}
 
