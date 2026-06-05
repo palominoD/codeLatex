@@ -29,7 +29,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \lhead{\includegraphics[width=1.5cm]{\logoWhip}}
-\rhead{\includegraphics[height=0.8cm]{\logoTecno}}
+\rhead{\includegraphics[height=0.5cm]{\logoTecno}}
 \renewcommand{\headrulewidth}{3pt}
 \renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
 
@@ -45,8 +45,6 @@
 \newcommand{\logoTecno}{img/cands.png}
 \newcommand{\logoWhip}{img/largeW.png}
 \newcommand{\logosaint}{img/saint.jpg}
-
-
 % \newcommand{\}{/img/}
 
 
@@ -101,7 +99,7 @@
     \cfoot{\thepage}
     \clearpage
 
-    %desarrollo
+%%%%%%%%%%%%%%desarrollo%%%%%%%%%%%%%%% 
     \section{Introducción}
     El presente documento describe el desarrollo del Proof of Concept (PoC) de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, el cual será ejecutado con el propósito de validar las capacidades de la solución en la identificación de vulnerabilidades, evaluación de configuraciones de seguridad y análisis de la postura de ciberseguridad dentro del entorno tecnológico del cliente.
 
@@ -176,7 +174,7 @@
 
     Los escenarios definidos permitirán validar la operación de la solución en condiciones controladas y representativas del entorno real del cliente, asegurando la obtención de resultados medibles y técnicamente verificables.
 
-    \textbf{Escaneo de Red No Autenticado}\\\\
+    \subsection{Escaneo de Red No Autenticado}
     \textbf{Descripción:} \\
     Se ejecutará un escaneo de vulnerabilidades sin uso de credenciales, con el objetivo de identificar la superficie de ataque visible desde la red, incluyendo servicios expuestos, versiones detectables y vulnerabilidades conocidas.
 
@@ -190,7 +188,7 @@
         \item Precisión en identificación de sistemas operativos y servicios
     \end{itemize}
 
-    \textbf{Escaneo de Vulnerabilidades Autenticado}\\\\
+    \subsection{Escaneo de Vulnerabilidades Autenticado}
     \textbf{Descripción:}\\
     Se ejecutará un escaneo utilizando credenciales autorizadas para obtener visibilidad profunda del estado de seguridad de los sistemas incluidos en el alcance.
 
@@ -205,11 +203,13 @@
         \item Identificación de parches faltantes
     \end{itemize}
 
-    \textbf{Evaluación de Configuración de Seguridad}\\\\
+    \subsection{Evaluación de Configuración de Seguridad}
     \textbf{Descripción:}\\
     Se evaluarán configuraciones del sistema operativo y servicios críticos contra buenas prácticas de seguridad.
+
     \textbf{Objetivo:}\\
     Identificar desviaciones de configuraciones seguras que puedan representar riesgos de seguridad.
+
     \textbf{Métricas de Validación:}
     \begin{itemize}
         \item Cantidad de controles evaluados
@@ -219,11 +219,13 @@
 
     \newpage
 
-    \textbf{Evaluación de Cumplimiento (Compliance Assessment)}\\\\
+    \subsection{Evaluación de Cumplimiento (Compliance Assessment)}
     \textbf{Descripción:}\\
     Se comparará el estado actual de configuración contra estándares de seguridad aplicables definidos previamente con el cliente.
+
     \textbf{Objetivo:}\\
     Validar la capacidad de la solución para medir postura de cumplimiento y generar recomendaciones de mejora.
+    
     \textbf{Métricas de Validación:}
     \begin{itemize}
         \item Score de cumplimiento obtenido
@@ -231,6 +233,102 @@
         \item Recomendaciones técnicas generadas
     \end{itemize}
 
+    
+
+%%%%%%%%%%%%%%inicio%%%%%%%%%%%%%%%%%%%%%
+    
+    \section{Prerrequisitos del Proof of Concept (PoC)}
+    Para garantizar una correcta ejecución del Proof of Concept (PoC) de la solución SAINT Corporation SAINT Security Suite, es necesario que el cliente cumpla previamente con una serie de prerrequisitos técnicos, operativos y administrativos.
+
+    Estos prerrequisitos permitirán asegurar la estabilidad de las evaluaciones, la correcta autenticación de los escaneos y la obtención de resultados confiables durante el periodo de validación.
+
+    \subsection{Prerrequisitos Técnicos}
+    El cliente deberá proporcionar:
+    \begin{itemize}
+        \item Conectividad de red entre el servidor de escaneo y los activos objetivo.
+        \item Resolución DNS funcional dentro del entorno evaluado.
+        \item Acceso a los segmentos de red incluidos en el alcance del PoC.
+        \item Autorización previa de puertos requeridos para escaneo y autenticación.
+        \item Sin restricciones de firewall que impidan comunicación entre el scanner y los objetivos.
+    \end{itemize}
+
+    \subsection{Credenciales y Accesos}
+    Para evaluaciones autenticadas, el cliente deberá proporcionar credenciales con permisos adecuados según el tipo de activo:
+    \textbf{Sistemas Windows}
+        \begin{itemize}
+            \item Cuenta con privilegios administrativos locales o equivalentes.
+            \item Acceso WMI habilitado.
+            \item SMB accesible.
+            \item Remote Registry habilitado (si aplica).
+        \end{itemize}
+
+    \textbf{Sistemas Linux / Unix}
+        \begin{itemize}
+            \item Credenciales SSH válidas.
+            \item Permisos suficientes para auditoría de configuración y paquetes instalados.
+            \item Servicio SSH habilitado y accesible.
+        \end{itemize}
+
+    \textbf{Infraestructura Virtual}
+        \begin{itemize}
+            \item Credenciales de acceso a VMware ESXi, vCenter o hipervisor correspondiente.
+            \item Permisos de lectura necesarios para recopilación de información.
+        \end{itemize}
+
+    \textbf{Equipos de Red}
+        \begin{itemize}
+            \item Acceso SNMP o SSH/Telnet según capacidades del dispositivo.
+            \item Credenciales válidas.
+        \end{itemize}
+
+    \subsection{Requerimientos del Scanner}
+    El entorno destinado al servidor o appliance de escaneo deberá cumplir con:
+    \begin{itemize}
+        \item Recursos de CPU, memoria y almacenamiento adecuados al tamaño del alcance.
+        \item Acceso estable a red interna.
+        \item Dirección IP fija.
+        \item Sin políticas que limiten el tráfico de escaneo interno.
+    \end{itemize}
+
+    \subsection{Exclusiones y Permisos de Seguridad}
+    El cliente deberá considerar:
+    \begin{itemize}
+        \item Exclusiones temporales en EDR/Antivirus si interfieren con el proceso de escaneo.
+        \item Permitir tráfico generado por la plataforma durante el PoC.
+        \item Validar que herramientas IPS/IDS no bloqueen el scanner automáticamente.
+    \end{itemize}
+
+    \subsection{Inventario de Activos}
+    El cliente deberá proporcionar:
+    \begin{itemize}
+        \item Listado de direcciones IP o rangos a evaluar.
+        \item Identificación de activos críticos o sensibles.
+        \item Clasificación básica de los sistemas incluidos:
+            \begin{itemize}
+                \item Servidores Windows
+                \item Servidores Linux
+                \item Equipos de red
+                \item Infraestructura virtual
+                \item Endpoints
+            \end{itemize}
+        \item Identificación de activos fuera de alcance.
+    \end{itemize}
+
+    \subsection{Requerimientos Operativos}
+    \begin{itemize}
+        \item Designación de un responsable técnico del cliente.
+        \item Definición clara del alcance de activos.
+        \item Ventanas autorizadas para ejecución de escaneos.
+        \item Disponibilidad del equipo técnico durante validaciones y revisiones.
+    \end{itemize}
+
+    \subsection{Consideraciones Importantes}
+    \begin{itemize}
+        \item Las evaluaciones serán ejecutadas únicamente sobre activos autorizados por el cliente.
+        \item Cualquier cambio en el alcance deberá ser validado previamente.
+        \item El rendimiento del escaneo puede variar dependiendo de restricciones de red, autenticación o capacidad de los activos evaluados.
+    \end{itemize}
+%%%%%%%%%%%%%%secciona mofificar%%%%%%%%
     \section{Criterios de aceptación}
     Los criterios de validación establecen las condiciones mínimas necesarias para determinar que el Proof of Concept (PoC) ha sido ejecutado de manera satisfactoria, permitiendo evaluar objetivamente las capacidades de la plataforma SAINT Security Suite, desarrollada por SAINT Corporation, dentro del entorno tecnológico del cliente.
 
