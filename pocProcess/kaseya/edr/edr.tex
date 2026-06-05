@@ -1,0 +1,86 @@
+
+%formato de plantilla que se va a utilizar
+\documentclass[a4paper]{article} 
+%para idioma espanol
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%gestor de espacio
+\usepackage[margin=2cm,top=2cm,includefoot]{geometry}
+%gestor de imagenes
+\usepackage{graphicx}
+%usar el float H
+\usepackage{float}
+%deteccion de color
+\usepackage[table,xcdraw]{xcolor}
+%insericion de cuadros
+\usepackage[most]{tcolorbox}
+%definir el estilo de lapagina
+\usepackage{fancyhdr}
+%gestion de hypervinculos
+\usepackage[hidelinks]{hyperref}
+%eliminar sangria inicial
+\usepackage{parskip}
+%Uso parea tabla limpia
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+%cabecera
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\includegraphics[width=1.5cm]{\logoWhip}}
+\rhead{\includegraphics[height=1cm]{\logoTecno}}
+\renewcommand{\headrulewidth}{3pt}
+\renewcommand{\headrule}{\hbox to \headwidth{\color{lineCabecera}\leaders\hrule height \headrulewidth\hfill}}
+
+%variables de color
+\definecolor{greenPortada}{HTML}{69A84F}
+\definecolor{lineCabecera}{HTML}{1F51FF}
+%\definecolor{lineCabecera}{HTML}{3F00FF}
+
+
+%variables globales
+%\newcommand{\canal}{Nemotek}
+\newcommand{\startDate}{\today}
+\newcommand{\logoTecno}{../img/logok.pdf}
+\newcommand{\logoWhip}{../img/largeW.png}
+% \newcommand{\}{/img/}
+
+
+% ################################ Comienzo del documento ########################
+\begin{document}
+    %creacion de portada
+    \begin{titlepage}
+        \centering
+        \includegraphics[width=0.3\textwidth]{\logoWhip}
+        \par\vspace{2cm}
+        {\Huge\textbf{Proof of Concept}}
+        \par\vspace{2cm}
+        \vfill
+        \par\vspace{0.4cm}
+        \includegraphics[width=\textwidth,height=8cm,keepaspectratio]{\logoTecno}
+        \vfill
+        {\large\startDate\par}
+    \end{titlepage}
+    \clearpage
+
+    %creacion de indice
+    \tableofcontents
+    \cfoot{\thepage}
+    \clearpage
+
+    %################################ desarrollo #################################
+    \section{Introducción}
+    \section{Objetivo}
+    \section{Alcance de la evaluación}
+    \section{Escenarios de validación sugeridos}
+    \section{Criterios de aceptación}
+    \section{Cronograma de actividades.}
+    \section{Criterio de éxito global}
+    \section{Cierre}
+    \section{Roles y responsabilidades}
+    
+
+
+\end{document}
+
